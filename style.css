@@ -1,4 +1,5 @@
 /* imports */
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500&display=swap');
 
 /* browser reset by https://piccalil.li/blog/a-modern-css-reset */
 /* Box sizing rules */
@@ -68,11 +69,185 @@ svg {
 
 /* custom properties */
 :root {
+  --clr-primary-1: linear-gradient(
+    to bottom right,
+    hsl(249, 99%, 64%) 0%,
+    hsl(278, 94%, 30%) 100%
+  ); /* active input border */
+  --clr-primary-2: hsl(0, 100%, 66%); /* input errors */
+
+  --clr-neutral-1: hsl(0, 0%, 100%); /* white */
+  --clr-neutral-2: hsl(270, 3%, 87%); /* light grayish violet */
+  --clr-neutral-3: hsl(279, 6%, 55%); /* dark grayish violet */
+  --clr-neutral-3: hsl(278, 68%, 11%); /* very dark violet */
+
+  --clr-text: var(--clr-neutral-3);
+
+  --ff-primary: 'Space Grotesk', sans-serif;
+  --ff-body: var(--ff-primary);
+
+  /* 0.5rem = 8px, 1rem = 16px, 1.5rem = 24px, 2rem = 32px, 2.5rem = 40px, 3rem = 48px, ... */
+  --fs-100: 0.75rem; /* 12px */ /* small font size */
+  --fs-200: 0.8125rem; /* 13px */ /* small font size */
+  --fs-300: 0.9375rem; /* 15px */ /* normal font size */
+  --fs-400: 1.125rem; /* 18px */ /* h3 font size */
+  --fs-500: 1.25rem; /* 20px */ /* h2 font size */
+  --fs-600: 1.5rem; /* 24px */ /* h1 font size */
+  --fs-700: 2rem; /* 32px */ /* big font size */
+  --fs-800: 3rem; /* 48px */
+
+  --fw-regular: 500;
+  --fw-light: 400;
 }
 
 /* global styles */
+body {
+  font-family: var(--ff-body);
+  font-size: var(--fs-400);
+  font-weight: var(--fw-regular);
+  background-color: var(--clr-neutral-1);
+  color: var(--clr-text);
+
+  min-height: 100vh;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+}
 
 /* utility classes */
+.container {
+  margin-top: 1.5rem;
+  padding: 2rem;
+}
+
+.button {
+  width: 100%;
+  padding: 12px;
+  border-radius: 5px;
+  border: none;
+  background-color: var(--clr-neutral-3);
+  color: var(--clr-neutral-1);
+  margin-top: 20px;
+}
+
+/* the actual css */
+main {
+  display: block;
+  position: relative;
+}
+
+.main__desktop {
+  display: none;
+}
+
+.completed__container {
+  display: none;
+}
+
+.main__left {
+  background-image: url(./images/bg-main-mobile.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 250px;
+  position: relative;
+}
+
+.cards__back {
+  position: absolute;
+  top: 2rem;
+  right: 1rem;
+  width: 290px;
+  z-index: 2;
+}
+
+.cards__front {
+  position: absolute;
+  top: 7.5rem;
+  left: 1rem;
+  width: 290px;
+  z-index: 4;
+}
+
+/* form */
+label {
+  text-transform: uppercase;
+  letter-spacing: 0.15rem;
+  font-size: var(--fs-100);
+  width: 100%;
+}
+
+.card__content {
+  margin-top: 10px;
+}
+
+input {
+  width: 100%;
+  border-radius: 5px;
+  border: 1px solid var(--clr-neutral-2);
+  padding: 5px 15px;
+  margin-top: 2px;
+  color: var(--clr-neutral-2);
+  font-weight: var(--fw-light);
+}
+
+input:focus-within {
+  outline: none;
+}
+
+.card__content-back {
+  display: flex;
+}
+
+.card__content-date {
+  width: 50%;
+}
+
+.card__content-date div {
+  display: flex;
+}
+
+.card__content-date input {
+  width: 40%;
+  margin-right: 10px;
+}
+
+.card__content-cvc {
+  width: 50%;
+}
+
+::placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: var(--clr-neutral-2);
+}
+
+:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: var(--clr-neutral-2);
+}
+
+::-ms-input-placeholder {
+  /* Microsoft Edge */
+  color: var(--clr-neutral-2);
+}
+
+/* footer */
+footer {
+  font-size: var(--fs-200);
+  min-height: fit-content;
+  margin-top: 0px;
+}
+
+footer p {
+  text-align: center;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+footer .fa-heart {
+  color: crimson;
+}
 
 /* keyframes */
 
