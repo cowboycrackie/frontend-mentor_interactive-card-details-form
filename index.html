@@ -28,14 +28,12 @@
               src="./images/bg-card-front.png"
               alt="card front"
             />
-            <p
-              class="cards__front-number"
-              data-placeholder="1234 5678 9123 0000"
-            >
-              1234 5678 9123 0000
-            </p>
+            <p class="cards__front-number">1234 5678 9123 0000</p>
             <p class="cards__front-name">Jane Appleseed</p>
-            <p class="cards__front-date">08/22</p>
+            <p class="cards__front-date">
+              <span class="cards__front-date-mm">08</span>
+              <span>/</span><span class="cards__front-date-yy">22</span>
+            </p>
             <img class="cards__front-logo" src="./images/card-logo.svg" />
           </div>
         </div>
@@ -57,36 +55,59 @@
             <label for="name" class="card__name">Cardholder Name</label>
             <input
               type="text"
+              pattern="[0-9.]+"
               name="name"
               placeholder="e.g. Jane Appleseed"
+              onkeydown="preventNumberInput(event)"
+              onkeyup="preventNumberInput(event)"
               class="card__input"
+              id="card__input-name"
             />
+            <span class="error-msg">required!</span>
           </div>
           <div class="card__content">
             <label for="cardnr" class="card__number">Card Number</label>
             <input
-              type="number"
               name="cardnr"
               placeholder="e.g. 1234 5678 9123 0000"
+              oninput="if(this.value.length > this.maxLength) this.value=this.value.slice(0,this.maxLength)"
+              minlength="19"
+              maxlength="19"
               class="card__input"
+              id="card__input-number"
             />
+            <span class="error-msg">required!</span>
           </div>
           <div class="card__content-back">
             <div class="card__content card__content-date">
               <label for="date" class="card__date">Exp. Date (mm/yy)</label>
               <div>
-                <input
-                  type="text"
-                  name="date"
-                  placeholder="MM"
-                  class="card__input"
-                />
-                <input
-                  type="text"
-                  name="date"
-                  placeholder="YY"
-                  class="card__input"
-                />
+                <div class="card__group-MM">
+                  <input
+                    type="text"
+                    name="date"
+                    placeholder="MM"
+                    class="card__input"
+                    id="card__input-mm"
+                    oninput="if(this.value.length > this.maxLength) this.value=this.value.slice(0,this.maxLength)"
+                    minlength="2"
+                    maxlength="2"
+                  />
+                  <span class="error-msg">required!</span>
+                </div>
+                <div class="card__group-YY">
+                  <input
+                    type="text"
+                    name="date"
+                    placeholder="YY"
+                    class="card__input"
+                    id="card__input-yy"
+                    oninput="if(this.value.length > this.maxLength) this.value=this.value.slice(0,this.maxLength)"
+                    minlength="2"
+                    maxlength="2"
+                  />
+                  <span class="error-msg">required!</span>
+                </div>
               </div>
             </div>
             <div class="card__content card__content-cvc">
@@ -96,7 +117,12 @@
                 name="date"
                 placeholder="e.g. 123"
                 class="card__input"
+                id="card__input-cvc"
+                oninput="if(this.value.length > this.maxLength) this.value=this.value.slice(0,this.maxLength)"
+                minlength="3"
+                maxlength="3"
               />
+              <span class="error-msg">required!</span>
             </div>
           </div>
           <button class="card__button button" type="submit">Confirm</button>

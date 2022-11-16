@@ -129,6 +129,22 @@ a {
   background-color: var(--clr-neutral-4);
   color: var(--clr-neutral-1);
   margin-top: 20px;
+  cursor: pointer;
+}
+
+.error {
+  border: 1px solid var(--clr-primary-2);
+}
+
+.error-msg {
+  display: none;
+}
+
+.error__message .error-msg {
+  display: block;
+  font-size: var(--fs-100);
+  line-height: 0.9rem;
+  color: var(--clr-primary-2);
 }
 
 /* the actual css */
@@ -260,11 +276,12 @@ label {
 
 input {
   width: 100%;
+  height: fit-content;
   border-radius: 5px;
   border: 1px solid var(--clr-neutral-2);
   padding: 5px 15px;
   margin-top: 2px;
-  color: var(--clr-neutral-2);
+  color: var(--clr-neutral-4);
   font-weight: var(--fw-light);
 }
 
@@ -281,7 +298,6 @@ input {
 }
 
 .card__content-date input {
-  width: 40%;
   margin-right: 10px;
 }
 
@@ -312,6 +328,16 @@ input {
 input:focus-within {
   outline: none;
   border: 1px solid var(--clr-neutral-4);
+}
+
+.card__group-MM .card__group-YY {
+  display: block !important;
+}
+
+.card__group-MM.error__message,
+.card__group-YY.error__message {
+  display: block !important;
+  margin-right: 10px;
 }
 
 /* completed */
@@ -374,11 +400,11 @@ footer .fa-heart {
   }
 
   .card__content-date input {
-    width: 50%;
+    width: 100%;
     margin-right: 10px;
   }
 
-  .card__content-date div > input:last-child {
+  .card__content-date .card__group-YY > input {
     margin-right: 0;
   }
 
