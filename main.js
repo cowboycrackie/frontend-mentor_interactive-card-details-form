@@ -106,6 +106,16 @@ function handleSubmit(e) {
     userCVC.classList.remove('error');
     userCVC.parentElement.classList.remove('error__message');
   }
+
+  if (
+    userName.value &&
+    userCardNumber.value &&
+    userMM.value &&
+    userYY.value & userCVC.value
+  ) {
+    completedSection.classList.remove('hide');
+    form.classList.add('hide');
+  }
 }
 
 submitBtn.addEventListener('click', handleSubmit);

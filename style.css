@@ -147,6 +147,10 @@ a {
   color: var(--clr-primary-2);
 }
 
+.hide {
+  display: none !important;
+}
+
 /* the actual css */
 main {
   display: block;
@@ -164,7 +168,7 @@ main {
 }
 
 .completed__container {
-  display: none;
+  display: block;
 }
 
 .main__left {
