@@ -168,6 +168,8 @@ main {
 }
 
 .completed__container {
+  width: 100%;
+  position: relative;
   display: block;
 }
 
@@ -448,7 +450,8 @@ footer .fa-heart {
     width: 100%;
   }
 
-  form {
+  form,
+  .completed__inner {
     width: 45%;
     position: absolute;
     top: 50%;
